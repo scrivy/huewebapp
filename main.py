@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template
 from hue import Hue
-import requests
 
 h = Hue();
 h.station_ip = "192.168.1.100"
@@ -23,4 +22,4 @@ def changecolor(red,green,blue):
 	return 'pray'
 
 if __name__ == "__main__":
-	app.run(host='0.0.0.0',debug=True,port=80)
+	app.run(host='0.0.0.0',debug=False,port=80)
