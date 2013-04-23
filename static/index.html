@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Public Charging Survey</title>
+	<link rel="stylesheet" href="jquery-ui/themes/base/jquery.ui.all.css" />
+	<script type="text/javascript" src="jquery-ui/jquery.js"></script>
+	<script type="text/javascript" src="jquery-ui/ui/jquery-ui.js"></script>
+	<link rel="stylesheet" href="jquery-ui/demos.css" />
+ <script type="text/javascript">
+$(function() {
+$( "#slider1, #slider2, #slider3" ).slider({
+	range: "min",
+	max: 255,
+	slide: updatelight,
+	change: updatelight
+});
+});
+function updatelight() {
+
+var url = 'http://192.168.1.133/changecolor/';
+url += $("#slider1").slider("value")+'/';
+url += $("#slider2").slider("value")+'/';
+url += $("#slider3").slider("value");
+	$.ajax({
+		url: url
+	});
+}
+</script>
+</head>
+<body>
+<div id="slider1"></div><br /><br />
+<div id="slider2"></div><br /><br />
+<div id="slider3"></div><br /><br />
+</body>
+</html>
+
